@@ -14,10 +14,12 @@ client = OpenAI(
 messages = [
   {
     "role": "user", # This is coming from the user, not from another model
-    "content": "What is Artificial Intelligence?"
+    "content": "Write a poem about rain."
   }
 ]
 
+# Send a question to the AI model, we can dynamically take in the `content`
+# part of the messages, from the user.
 response = client.chat.completions.create(
               model=os.getenv("MODEL"),
               messages=messages)
