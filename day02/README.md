@@ -96,3 +96,16 @@
     # 7. Print the response's message content
     print(response.choices[0].message.content)
   ```
+
+## What if the Conversation is large?
+
+> At this level, when learning, or building a small application, sending the entire conversation is fine, since there's no overhead of memory, and the conversations are expected to be short. BUT!!
+
+- When the conversation is too large, having 50, 100, 200, etc messages in the `message[]` list, then sending all of that conversation to the underlying AI model becomes more and more expensive.
+  - Imagine ChatGPT, Gemini, Claude, and DeepSeek sending the entire conversation like this; it would eventually break the system.
+- Therefore, professional AI applications solve this problem using techniques such as:
+  1. Conversation Summarization.
+  1. Sliding Windows
+  1. Vector Memory
+  1. Long-term Memory
+  1. Knowledge Retrieval
