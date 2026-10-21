@@ -18,19 +18,19 @@ print(columns * "=")
 
 # Create an empty list to ensure that the entire conversation is stored.
 messages = []
+exit_prompts = ["quit", "bye", "exit"]
+history_prompts = ["/h", "/history"]
 
 while True:
     user_raw_input = input("\n> ")
     user_prompt = user_raw_input.lower()
 
-    exit_prompts = ["quit", "bye", "exit"]
-
+    # Check if user wants to exit...
     if user_prompt in exit_prompts:
         print("Bye! See you next time...\n")
         break
 
-    history_prompts = ["/h", "/history"]
-
+    # Check if user wants to know conversational history
     if user_prompt in history_prompts:
         print("Conversation History:")
         print("---------------------")
