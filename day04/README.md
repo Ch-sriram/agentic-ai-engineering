@@ -107,3 +107,33 @@
 
     return random.randint(1, 6)
   ```
+
+## Connecting Tools to AI Assistant
+
+- User Question/Prompt:
+  - Can Python handle this?
+    - Yes: Use a Tool
+    - No: Pass it to the underlying AI model
+
+- In `assistant.py`, import the methods from `tools.py`:
+
+  ```py
+  from tools import get_current_time, roll_dice, generate_password
+
+  # ...
+  # ...
+  if "time" in user_input.lower():
+    print("\nAI: ", get_current_time())
+    continue
+  
+  # The AI model is never called
+  ```
+
+- To add support for rolling a dice, do the following:
+
+  ```py
+  
+  if "dice" in user_input.lower():
+    print("\nAI: You rollled a ", roll_dice())
+    continue
+  ```
