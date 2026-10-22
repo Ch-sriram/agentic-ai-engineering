@@ -100,3 +100,12 @@
 
 - If activate correctly, you should see something like `(.venv)` in your terminal prompt, at the beginning.
 - To come out of the virtual environment, just type in `deactivate` in your terminal.
+
+## Why Manual Tool Selection?
+
+- Because today, we're learning the idea, not the final architecture.
+- First, we should understand how tool selection works, then we'll replace the manual tool selection (mainly `if` statements) with:
+  - Automatic AI Tool Selection
+  - Structured Tool Definitions
+  - Model-Drive Functional Calling
+  - Eventually MCP
