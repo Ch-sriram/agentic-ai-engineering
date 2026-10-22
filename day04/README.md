@@ -83,3 +83,27 @@
 
     return datetime.now().strftime("%d-%m-%Y %I:%M:%S %p")
   ```
+
+- We've to test the tool that we just created:
+  - Create a file named `test_tools.py` as follows:
+
+    ```py
+    from tools import get_current_time # We're import `get_current_time` method from inside tools.py file
+    print(get_current_time()) # This should print the current time, correctly.
+    ```
+  
+  - Testing a tool is important because:
+    1. Professional developers test small pieces before combining them into larger piece of software.
+
+### Creating the "Dice Roller" Tool
+
+- In `tools.py`, define a method that returns a random die roll from \[1-6\]:
+
+  ```py
+  import random
+
+  def roll_dice():
+    """Return a random number between 1 and 6."""
+
+    return random.randint(1, 6)
+  ```
