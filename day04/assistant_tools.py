@@ -1,8 +1,7 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 from os import getenv, get_terminal_size
-from random import randint
-from tools import get_current_time, roll_dice, generate_password
+from tool_manager import execute_tool
 
 load_dotenv()
 BASE_URL = getenv("BASE_URL")
@@ -53,23 +52,9 @@ while True:
         print(SEPARATOR)
         continue
 
-    words_in_user_sanitized_prompt = set(user_sanitized_prompt.split())
-
-    if words_in_user_sanitized_prompt & TOOL_WORDS['time']:
-        print(f"\n🤖> Current time is: {get_current_time()}")
-        print(SEPARATOR)
-        continue
-
-    if words_in_user_sanitized_prompt & TOOL_WORDS['dice']:
-        print(f"\n🤖> Rolled a dice, and you got: {roll_dice()}")
-        print(SEPARATOR)
-        continue
-
-    if words_in_user_sanitized_prompt & TOOL_WORDS['password']:
-        pass_len = randint(12, 30)
-        print(
-            f"\n🤖> Generating a random password of length {pass_len}: {generate_password(pass_len)}")
-        print(SEPARATOR)
+    tool_response = execute_tool(user_sanitized_prompt)
+    if tool_response != None:
+        print(tool_response + SEPARATOR)
         continue
 
     messages.append({"role": "user", "content": user_raw_prompt})
