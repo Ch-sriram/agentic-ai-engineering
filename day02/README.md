@@ -28,6 +28,7 @@
 
   which might print something like the following:
 
+  > ```json
   > {
   > "id": "chatcmpl-574",
   > "choices": [
@@ -62,6 +63,7 @@
   >     "prompt_tokens_details": null
   >   }
   > }
+  > ```
 
 ## How does memory in a conversation work?
 
